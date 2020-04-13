@@ -2,7 +2,7 @@
 
 <image src="/images/avatar/4.png" class="user-avatar"></image>
 <!-- 图片尺寸300px,225px -->
-<text class="user-name">Hello,七月</text>
+<text class="user-name">Hello,Vivien</text>
 <view class="moto-container" bind:tap="onTap">
 <text class="moto">开启小程序之旅</text>
 </view>
