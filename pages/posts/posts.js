@@ -1,5 +1,5 @@
 // pages/posts/posts.js
-var postData=require("../../data/posts-data")
+var postData = require("../../data/posts-data")
 
 Page({
 
@@ -14,10 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({postList:postData.postList});
+    this.setData({
+      postList: postData.postList
+    });
 
   },
-  
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -66,12 +68,12 @@ Page({
    */
   onShareAppMessage: function () {
     console.log("onShareAppMessage");
-  }  ,
-  
+  },
+
   onPostClick: function (event) {
-    var postId=event.currentTarget.dataset.postId;
+    var postId = event.currentTarget.dataset.postId;
     wx.navigateTo({
-      url: 'post-detail/post-detail'
+      url: "post-detail/post-detail?id=" + postId
     })
   }
 })
