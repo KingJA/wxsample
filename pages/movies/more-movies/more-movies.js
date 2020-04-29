@@ -45,18 +45,18 @@ Page({
     })
 
   },
-  onScrollLower: function (event) {
+  // onScrollLower: function (event) {
 
-    var dataUrl = this.data.requestUrl + '&start=' + this.data.totalCount + '&count=' + this.data.count;
-    console.log("加载更多" + dataUrl);
-    wx.showNavigationBarLoading({
-      complete: (res) => {},
-    })
-    util.get(dataUrl, (data) => {
-      this.processDoubanData(data);
-    })
+  //   var dataUrl = this.data.requestUrl + '&start=' + this.data.totalCount + '&count=' + this.data.count;
+  //   console.log("加载更多" + dataUrl);
+  //   wx.showNavigationBarLoading({
+  //     complete: (res) => {},
+  //   })
+  //   util.get(dataUrl, (data) => {
+  //     this.processDoubanData(data);
+  //   })
 
-  },
+  // },
   processDoubanData: function (data) {
     var subjects = data.subjects;
     this.data.totalCount += subjects.length;
@@ -94,8 +94,20 @@ Page({
   },
   onPullDownRefresh: function (event) {
     console.log("下拉刷新");
+    this.data.movies=[];
+    
+    util.get(this.data.requestUrl, (data) => {
+      this.processDoubanData(data);
+    })
   },
-  onScrollTop: function (event) {
-    console.log("下拉刷新 onScrollTop");
+  onReachBottom: function () {
+    var dataUrl = this.data.requestUrl + '&start=' + this.data.totalCount + '&count=' + this.data.count;
+    console.log("加载更多" + dataUrl);
+    wx.showNavigationBarLoading({
+      complete: (res) => {},
+    })
+    util.get(dataUrl, (data) => {
+      this.processDoubanData(data);
+    })
   }
 })
