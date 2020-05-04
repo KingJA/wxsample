@@ -94,8 +94,8 @@ Page({
   },
   onPullDownRefresh: function (event) {
     console.log("下拉刷新");
-    this.data.movies=[];
-    
+    this.data.movies = [];
+
     util.get(this.data.requestUrl, (data) => {
       this.processDoubanData(data);
     })

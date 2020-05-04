@@ -64,6 +64,14 @@ Page({
       app.globalData.g_isPlayingMusic = false;
     })
 
+    wx.onBackgroundAudioStop((res) => {})((res) => {
+      console.log('onBackgroundAudioPause');
+      this.setData({
+        isPlaying: false
+      });
+      app.globalData.g_isPlayingMusic = false;
+    })
+
   },
 
   /**

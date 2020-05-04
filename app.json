@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/posts/posts",
     "pages/movies/movies",
+    "pages/posts/posts",
+    "pages/movies/movie-detail/movie-detail",
     "pages/movies/more-movies/more-movies",
     "pages/posts/post-detail/post-detail",
     "pages/welcome/welcome"

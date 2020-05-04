@@ -87,16 +87,25 @@ Page({
     });
 
   },
-  onBindinput: function (e) {
+  onBindConfirm: function (e) {
+    var keyword = e.detail.value;
+    var searchUrl = app.globalData.doubanbase + "/v2/movie/search?q=" + keyword;
+    this.getMoviesList(searchUrl, "searchMovies", "");
 
-    console.log('onBindinput');
   },
 
   onCancelImgTab: function (e) {
     this.setData({
       containerShow: true,
       searchPanelShow: false,
-      searchResult: {}
+      searchMovies: {}
     });
+  },
+  onMovieTap: function (e) {
+    var movieId = e.currentTarget.dataset.movieId;
+    console.log("movieId:" + movieId);
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id=' + movieId,
+    })
   }
 })
